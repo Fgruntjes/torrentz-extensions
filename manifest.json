@@ -1,0 +1,24 @@
+{
+    "manifest_version": 2,
+
+    "name": "Torrentz extensions",
+    "description": "Some extensions to the website torrenz.eu (like a magnet link)",
+    "version": "1.0",
+
+    "content_scripts": [
+        {
+            "run_at": "document_end",
+            "matches": [
+                "http://*.torrentz.eu/*",
+                "https://*.torrentz.eu/*"
+            ],
+            "css": [
+                "assets/css/styles.css"
+            ],
+            "js": [
+                "assets/js/jquery-2.1.1.js",
+                "assets/js/initialize.js"
+            ]
+        }
+    ]
+}
