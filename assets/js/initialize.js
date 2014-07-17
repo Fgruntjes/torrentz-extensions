@@ -3,10 +3,13 @@ $(function(){
 
     $('.results dl dt a').each(function(){
         var link = $(this);
-        var dht = 'magnet:?xt=urn:btih:' + link.attr('href').substr(1) + 'dn=' + encodeURI(link.html().replace(/(<([^>]+)>)/ig, ''));
 
+        var dht = {
+            'dn': link.html().replace(/(<([^>]+)>)/ig, '')
+        };
+        
         $('<a />')
-            .attr('href', dht)
+            .attr('href', 'magnet:?xt=urn:btih:' + link.attr('href').substr(1) + '&' + $.param(dht, true))
             .addClass('magnet-link')
             .html('<i class="fa fa-magnet"></i>')
             .insertBefore(link);
